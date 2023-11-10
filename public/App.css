@@ -3,205 +3,154 @@
 html,
 body {
   margin: 0;
+  padding: 0;
   font-family: "Oxygen", sans-serif;
+  background-color: #f4f4f4; /* Soft background color */
+  color: #333; /* Darker text for better readability */
 }
 
 main {
   display: flex;
   flex-direction: column;
+  max-width: 1200px; /* Max width for larger screens */
+  margin: auto;
 }
 
 .articles-container {
-  width: 100%;
   display: grid;
-  grid-template-columns: repeat(2, 215px);
+  grid-template-columns: repeat(auto-fill, minmax(215px, 1fr)); /* Responsive grid */
   grid-gap: 16px;
   justify-content: center;
-  background-color: #f2f2f2;
-  padding-bottom: 48px;
+  padding: 24px;
 }
 
-.current-article-container {
-  padding: 24px 16px 32px 16px;
-}
-
+.current-article-container,
 .comments-container {
-  padding: 0 16px 0 16px;
+  padding: 24px;
 }
 
 .article-container {
   cursor: pointer;
   border-radius: 6px;
-  border: solid 1px #141c3a;
-  background-color: #ffffff;
-  color: #141c3a;
-  padding: 0;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  padding: 16px;
   text-align: start;
-  width: 215px;
-  height: 100%;
   display: flex;
   flex-direction: column;
 }
 
-.article-title {
+.article-title,
+.current-article-title,
+.section-title {
   font-weight: bold;
-  margin: 0px;
   margin-bottom: 8px;
-  font-size: 20px;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: normal;
-  letter-spacing: normal;
+  color: #3275a8; /* Primary color for titles */
 }
 
 .article-container:hover {
-  background-color: #141c3a;
-  color: #ffffff;
+  background-color: #e0e0e0; /* Subtle hover effect */
 }
 
 .article-preview {
   font-style: italic;
-  margin: 0;
-  font-size: 16px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: italic;
-  line-height: 1.31;
-  letter-spacing: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .article-content-container {
-  padding: 9px 16px 31px 16px;
+  padding: 16px;
 }
 
 .section-title {
-  font-size: 32px;
-  font-weight: bold;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: normal;
-  letter-spacing: normal;
-  grid-column-end: 3;
-  grid-column-start: 1;
-  margin: 0;
+  font-size: 28px; /* Slightly smaller for better scaling */
   margin-top: 32px;
-  margin-bottom: 8px;
+  margin-bottom: 16px; /* Added space below the title */
+  text-align: center; /* Center align if needed */
 }
 
 .article-image {
   width: 100%;
-  display: block;
-}
-
-.current-article {
-  padding-bottom: 32px;
-}
-
-.article-full-image-container {
-  width: 100%;
-  height: 220px;
+  height: auto; /* Responsive image */
 }
 
 .article-full-image-container > img {
   object-fit: cover;
-  height: 100%;
-  width: 100%;
-}
-
-.current-article-title {
-  margin-top: 0;
-  margin-bottom: 16px;
-  font-size: 20px;
-  font-weight: bold;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: normal;
-  letter-spacing: normal;
-  color: #141c3a;
 }
 
 .comments-title {
-  margin-top: 0;
-  padding-bottom: 8px;
-  border-bottom: solid 1px #141c3a;
-}
-
-.comments-list {
-  list-style: none;
-  padding-left: 0;
+  border-bottom: solid 1px #3275a8; /* Primary color for underline */
 }
 
 .comment-container {
-  padding: 10px;
-  border-radius: 6px;
-  border: solid 1px #e5e5e5;
-  background-color: #ffffff;
+  background-color: #fff;
+  padding: 20px; /* Increased padding for a spacious look */
+  margin-bottom: 16px; /* Adjusted margin for spacing between cards */
+  border-radius: 8px; /* Rounded corners for a card-like look */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  border: none; /* Removing border for a cleaner look */
   font-size: 14px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.43;
-  letter-spacing: normal;
-  color: #141c3a;
-  overflow-wrap: anywhere;
+  color: #333; /* Darker text for better readability */
+  overflow-wrap: break-word; /* Ensures text wraps within the card */
 }
 
-.comment-container:not(:last-of-type) {
-  margin-bottom: 8px;
+.comments-container {
+  max-width: 800px; /* Limiting the width for better readability */
+  margin: auto; /* Centering the comments container */
+  padding: 24px 0; /* Padding at the top and bottom */
 }
 
 .label {
-  font-size: 15px;
-  font-weight: bold;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: normal;
-  letter-spacing: normal;
-  color: #141c3a;
-  display: block;
-  margin-bottom: 16px;
+  margin-bottom: 8px;
 }
 
 #comment {
-  padding: 7px 13px 7px 13px;
+  padding: 10px 15px;
   border-radius: 6px;
-  border: solid 1px #141c3a;
-  background-color: #ffffff;
-  flex-grow: 1;
-  margin-right: 8px;
+  border: solid 1px #ddd; /* Lighter border */
+  background-color: #fff;
+  width: 100%;
+  box-sizing: border-box; /* Ensures padding doesn't affect width */
 }
 
 .comment-button {
-  padding: 6px 12px;
+  padding: 10px 15px;
   border-radius: 6px;
-  border: solid 1px #141c3a;
-  background-color: #141c3a;
-  font-size: 18px;
-  font-weight: bold;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: normal;
-  letter-spacing: normal;
+  border: none;
+  background-color: #3275a8; /* Primary color for buttons */
+  font-size: 16px;
   color: #ffffff;
-  margin-left: auto;
   cursor: pointer;
+  transition: background-color 0.3s; /* Smooth transition for hover */
 }
 
 .comment-button:hover {
-  border: solid 1px #6400e4;
-  background-color: #6400e4;
+  background-color: darken(#3275a8, 10%); /* Slightly darker on hover */
 }
 
 .comment-button:disabled {
-  border: solid 1px #b9bbc4;
   background-color: #b9bbc4;
+  color: #fff;
 }
 
 #input-container {
   display: flex;
+  align-items: center; /* Align items for better form appearance */
+  gap: 8px; /* Consistent spacing */
+}
+
+@media (max-width: 768px) {
+  .articles-container {
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax(150px, 1fr)
+    ); /* Adjust grid for smaller screens */
+  }
+
+  .section-title {
+    font-size: 24px; /* Adjust font size for smaller screens */
+  }
 }
