@@ -21,3 +21,7 @@ Currently works from hardcoded data, but will implement a dynamic database for i
 ## Technologies
 
 React, Redux, Redux-toolkit.
+
+## Deployed on Netlify:
+
+[Click here to visit **Trusted News** Site](https://main--lambent-madeleine-75e763.netlify.app/)
